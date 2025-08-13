@@ -9,14 +9,12 @@ A minimal implementation of tree sort (binary search tree) that sorts numbers, m
 3. The program sorts them using a binary search tree (BST)
 4. It displays the sorted numbers
    
-##How To Use
+## How To Use
 
 1. Run the program
 2. Enter how many numbers you want to sort (e.g., 5)
 3. Input each number when prompted
 4. See the sorted result
-   
-###Example
 
 ### Example for Tree Sort
 
@@ -38,7 +36,7 @@ A straightforward implementation of the bubble sort algorithm that allows users 
 3. The program sorts the numbers using the bubble sort algorithm.
 4. You can choose to display the sorted list in ascending or descending order.
    
-##How To Use
+## How To Use
 
 1. Run the program.
 2. Enter how many numbers you want to sort (e.g., 5).
