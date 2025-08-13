@@ -1,47 +1,44 @@
+# Ask how many numbers to sort
+n = int(input("Enter number of inputs: "))
+
 numbers = []
-print("Enter numbers one by one. Type 'done' to finish.")
+for i in range(n):
+    num = int(input(f"Input {i+1}: "))
+    numbers.append(num)
 
-bst = []
+sorted_list = []
+tree = []
 
-while True:
-    user_input = input("Enter a number (or 'done' to exit): ")
-
-    if user_input.lower() == 'done':
-        break
-    
-    number = int(user_input)
-    numbers.append(number)
-
-    if not bst:
-        bst.append([number, [], []])  # Create a new tree node
+for num in numbers:
+    if not tree:
+        tree.append([num, [], []])
     else:
-        current = bst[0]  # Start with the root node
+        current = tree[0]
         while True:
-            if number < current[0]:  # Go to the left
-                if current[1]:  # Check if left subtree exists
-                    current = current[1]  # Move to the left subtree
+            if num < current[0]:
+                if current[1]:
+                    current = current[1]
                 else:
-                    current[1] = [number, [], []]  # Insert the number
+                    current[1] = [num, [], []]
                     break
-            else:  # Go to the right
-                if current[2]:  # Check if right subtree exists
-                    current = current[2]  # Move to the right subtree
+            else:
+                if current[2]:
+                    current = current[2]
                 else:
-                    current[2] = [number, [], []]  # Insert the number
+                    current[2] = [num, [], []]
                     break
 
-    sorted_list = []
-    stack = []
-    current = bst[0] 
+# Get sorted numbers (in-order traversal)
+result = []
+stack = []
+current = tree[0] if tree else None
 
-    while stack or current:
-        while current:
-            stack.append(current)
-            current = current[1]  # Move to the left child
-        current = stack.pop()
-        sorted_list.append(current[0])  # Append the node value
-        current = current[2]  # Move to the right child
+while stack or current:
+    while current:
+        stack.append(current)
+        current = current[1]
+    current = stack.pop()
+    result.append(current[0])
+    current = current[2]
 
-    print("Current sorted list (Tree Sorted):", sorted_list)
-
-print("Final sorted list (Tree Sorted):", sorted_list)
+print("Sorted numbers:", result)
